@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/create_rec"
+        android:icon="@drawable/ic_create_recipe"
+        android:orderInCategory="1"
+        android:title="@string/menu_create_rec" />
+
+    <item
+        android:id="@+id/ready_rec"
+        android:icon="@drawable/ic_ready_recipes"
+        android:orderInCategory="2"
+        android:title="@string/menu_ready_rec" />
+
+    <item
+        android:id="@+id/saved_rec"
+        android:icon="@drawable/ic_saved_recipe"
+        android:orderInCategory="3"
+        android:title="@string/menu_saved_rec" />
+
+</menu>
