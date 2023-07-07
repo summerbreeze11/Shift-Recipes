@@ -8,10 +8,10 @@
         android:title="@string/menu_create_rec" />
 
     <item
-        android:id="@+id/ready_rec"
+        android:id="@+id/create_group_of_rec"
         android:icon="@drawable/ic_ready_recipes"
         android:orderInCategory="2"
-        android:title="@string/menu_ready_rec" />
+        android:title="@string/menu_group_of_rec" />
 
     <item
         android:id="@+id/saved_rec"

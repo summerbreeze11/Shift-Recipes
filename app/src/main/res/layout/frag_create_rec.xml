@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <EditText
+        android:id="@+id/edRequestText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="100dp"
+        android:layout_marginTop="100dp"
+        android:layout_marginEnd="100dp"
+        android:ems="10"
+        android:hint="@string/hint_request"
+        android:inputType="textPersonName"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/tvAnswer"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="50dp"
+        android:text="ответ"
+        app:layout_constraintEnd_toEndOf="@+id/bGenerate"
+        app:layout_constraintStart_toStartOf="@+id/bGenerate"
+        app:layout_constraintTop_toBottomOf="@+id/bGenerate" />
+
+    <Button
+        android:id="@+id/bGenerate"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="50dp"
+        android:onClick="bGenerateClick"
+        android:text="Generate"
+        app:layout_constraintEnd_toEndOf="@+id/edRequestText"
+        app:layout_constraintStart_toStartOf="@+id/edRequestText"
+        app:layout_constraintTop_toBottomOf="@+id/edRequestText" />
+</androidx.constraintlayout.widget.ConstraintLayout>
