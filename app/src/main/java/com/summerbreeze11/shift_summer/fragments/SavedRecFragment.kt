@@ -8,7 +8,7 @@ import android.view.ViewGroup
 import com.summerbreeze11.shift_summer.databinding.FragSavedRecBinding
 
 
-class Saved_Rec_Fragment : Fragment() {
+class SavedRecFragment : Fragment() {
     private lateinit var binding: FragSavedRecBinding
 
     override fun onCreateView(
@@ -21,6 +21,6 @@ class Saved_Rec_Fragment : Fragment() {
 
     companion object {
         @JvmStatic
-        fun newInstance() = Saved_Rec_Fragment()
+        fun newInstance() = SavedRecFragment()
     }
 }

@@ -7,7 +7,7 @@ import android.view.View
 import android.view.ViewGroup
 import com.summerbreeze11.shift_summer.databinding.FragCreateRecBinding
 
-class Create_Rec_Fragment : Fragment() {
+class CreateRecFragment : Fragment() {
     private lateinit var binding: FragCreateRecBinding
 
     override fun onCreateView(
@@ -27,6 +27,6 @@ class Create_Rec_Fragment : Fragment() {
 
     companion object {
         @JvmStatic
-        fun newInstance() = Create_Rec_Fragment()
+        fun newInstance() = CreateRecFragment()
     }
 }

@@ -1,44 +1,42 @@
-package com.summerbreeze11.shift_summer.model
+package com.summerbreeze11.shift_summer
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.widget.EditText
-import android.widget.LinearLayout
-import androidx.lifecycle.ViewModel
-import androidx.lifecycle.ViewModelProvider
-import androidx.recyclerview.widget.LinearLayoutManager
-import androidx.recyclerview.widget.RecyclerView
 import com.summerbreeze11.shift_summer.databinding.ActivityMainBinding
-import com.summerbreeze11.shift_summer.model.Message
+import com.summerbreeze11.shift_summer.fragments.CreateGroupOfRecFragment
+import com.summerbreeze11.shift_summer.fragments.CreateRecFragment
+import com.summerbreeze11.shift_summer.fragments.SavedRecFragment
+import com.summerbreeze11.shift_summer.utils.openFragment
+import com.summerbreeze11.shift_summer.utils.showToast
 
 class MainActivity : AppCompatActivity() {
 
-
-    private lateinit var _binding : ActivityMainBinding
-    private lateinit var chatGptViewModel: ChatGptViewModel
+    private lateinit var binding: ActivityMainBinding
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        _binding = ActivityMainBinding.inflate(layoutInflater)
-        val binding = _binding.root
-        setContentView(binding)
+        binding = ActivityMainBinding.inflate(layoutInflater)
+        setContentView(binding.root)
+        onBottomNavClick()
+        openFragment(CreateRecFragment.newInstance())
+    }
 
-        chatGptViewModel = ViewModelProvider(this)[ChatGptViewModel::class.java]
-
-        val llm = LinearLayoutManager(this)
-        _binding.recyclerView.layoutManager = llm
-
-        chatGptViewModel.messageList.observe(this){messages ->
-            val adapter = MessageAdapter(messages)
-            _binding.recyclerView.adapter = adapter
+    private fun onBottomNavClick() {
+        binding.bNav.setOnItemSelectedListener {
+            when (it.itemId) {
+                R.id.create_rec -> {
+                    openFragment(CreateRecFragment.newInstance())
+                }
+                R.id.create_group_of_rec -> {
+                    openFragment(CreateGroupOfRecFragment.newInstance())
+                }
+                R.id.saved_rec -> {
+                    openFragment(SavedRecFragment.newInstance())
+                }
+                else -> {
+                    showToast(R.string.error.toString())
+                }
+            }
+            true
         }
-
-        _binding.sendBtn.setOnClickListener {
-            val question = _binding.messageEditText.text.toString()
-            chatGptViewModel.addToChat(question, Message.SENT_BY_ME,chatGptViewModel.getCurrentTimestamp())
-            _binding.messageEditText.setText("")
-            chatGptViewModel.callApi(question)
-        }
-
-
     }
 }
