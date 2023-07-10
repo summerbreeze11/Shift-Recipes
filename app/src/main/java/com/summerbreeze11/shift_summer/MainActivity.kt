@@ -2,8 +2,12 @@ package com.summerbreeze11.shift_summer
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.widget.Toast
 import com.summerbreeze11.shift_summer.databinding.ActivityMainBinding
+import com.summerbreeze11.shift_summer.fragments.CreateGroupOfRecFragment
+import com.summerbreeze11.shift_summer.fragments.CreateRecFragment
+import com.summerbreeze11.shift_summer.fragments.SavedRecFragment
+import com.summerbreeze11.shift_summer.utils.openFragment
+import com.summerbreeze11.shift_summer.utils.showToast
 
 class MainActivity : AppCompatActivity() {
 
@@ -13,19 +17,23 @@ class MainActivity : AppCompatActivity() {
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
         onBottomNavClick()
+        openFragment(CreateRecFragment.newInstance())
     }
 
     private fun onBottomNavClick() {
         binding.bNav.setOnItemSelectedListener {
             when (it.itemId) {
                 R.id.create_rec -> {
-                    Toast.makeText(this, "create_rec", Toast.LENGTH_SHORT).show()
+                    openFragment(CreateRecFragment.newInstance())
                 }
-                R.id.ready_rec -> {
-                    Toast.makeText(this, "ready_rec", Toast.LENGTH_SHORT).show()
+                R.id.create_group_of_rec -> {
+                    openFragment(CreateGroupOfRecFragment.newInstance())
                 }
                 R.id.saved_rec -> {
-                    Toast.makeText(this, "saved_rec", Toast.LENGTH_SHORT).show()
+                    openFragment(SavedRecFragment.newInstance())
+                }
+                else -> {
+                    showToast(R.string.error.toString())
                 }
             }
             true
