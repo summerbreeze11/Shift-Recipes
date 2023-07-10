@@ -3,6 +3,8 @@
     <string name="menu_create_rec">Create recipe</string>
     <string name="menu_group_of_rec">Group of recipe</string>
     <string name="menu_saved_rec">Saved recipe</string>
+    <string name="error">Error</string>
+
     <!--frag_create_rec-->
     <string name="hint_request">Your request</string>
 </resources>
