@@ -7,4 +7,6 @@
 
     <!--frag_create_rec-->
     <string name="hint_request">Your request</string>
+    <string name="waiting_response">Please wait..</string>
+    <string name="your_request">Your request: </string>
 </resources>
